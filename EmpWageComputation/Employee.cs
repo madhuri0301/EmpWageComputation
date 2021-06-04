@@ -6,18 +6,15 @@ namespace EmpWageComputation
 {
     class Employee
     {
-        public void Attendence()
+        public int Attendence(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
         {
             const int IS_FULL_TIME = 1;
             const int IS_PART_TIME = 2;
-            const int EMP_RATE_PER_HOUR = 20;
-            const int NO_WORKING_DAYS = 20;
-            const int MAX_HRS_IN_MONTH = 100;
 
             int totalEmpWage = 0;
             int totalEmpHrs = 0;
             int totalWorkingDays = 0;
-            while (totalEmpHrs <= MAX_HRS_IN_MONTH && totalWorkingDays < NO_WORKING_DAYS)
+            while (totalEmpHrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays)
             {
                 int empHour = 0;
                 totalWorkingDays++;
@@ -41,11 +38,12 @@ namespace EmpWageComputation
                         break;
                 }
                 totalEmpHrs += empHour;
-                int empWage = empHour * EMP_RATE_PER_HOUR;
+                int empWage = empHour * empRatePerHour;
                 totalEmpWage += empWage;
-                Console.WriteLine("Employee Wage is :" + empWage);
+                Console.WriteLine("Day :" + totalWorkingDays + " Employee Wage is :" + empWage);
             }
-            Console.WriteLine("Total Employee Wage is :" + totalEmpWage);
+            Console.WriteLine("Total Employee Wage for Company " + company + " is:" + totalEmpWage);
+            return totalEmpWage;
         }
     }
 }
