@@ -4,16 +4,30 @@ using System.Text;
 
 namespace EmpWageComputation
 {
-    class Employee
+    public class Employee
     {
-        public int Attendence(String company, int empRatePerHour, int numOfWorkingDays, int maxHoursPerMonth)
-        {
-            const int IS_FULL_TIME = 1;
-            const int IS_PART_TIME = 2;
+        public const int IS_FULL_TIME = 1;
+        public const int IS_PART_TIME = 2;
 
+        public String company;
+        public int empRatePerHour;
+        public int numOfWorkingDays;
+        public int maxHoursPerMonth;
+        public int totalEmpWage;
+
+        public Employee(string company, int empRatePerHour, int numOfWorkingDays, int maxHoursInMonth)
+        {
+            this.company = company;
+            this.empRatePerHour = empRatePerHour;
+            this.numOfWorkingDays = numOfWorkingDays;
+            this.maxHoursPerMonth = maxHoursInMonth;
+        }
+        public int Attendence()
+        {
             int totalEmpWage = 0;
-            int totalEmpHrs = 0;
             int totalWorkingDays = 0;
+            int totalEmpHrs = 0;
+
             while (totalEmpHrs <= maxHoursPerMonth && totalWorkingDays < numOfWorkingDays)
             {
                 int empHour = 0;
